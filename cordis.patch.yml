@@ -1,0 +1,16 @@
+# dsh-elysia-tts bundle patch
+# 安装后 dsh 启动时自动加载本插件；下面的路径按自己机器改。
+- insert:
+    - id: elysia-tts
+      name: dsh-elysia-tts
+      config:
+        gptSovitsDir: 'E:\GPT-SoVITS'
+        pythonPath: 'E:\Miniconda\envs\sovits\python.exe'
+        apiConfig: 'GPT_SoVITS/configs/tts_infer_v2pro.yaml'
+        port: 9880
+        autoStart: true
+        startTimeoutMs: 180000
+        refAudio: 'E:\deepseek\DEEPSEEK整合包\人格包\elysia-pkg2-elysia\voice-clips\g-06.wav'
+        promptText: '一段時間不見,芽衣變得越來越彈帥了,這也太犯規了吧'
+        temperature: 0.7
+        noiseScale: 0.35
