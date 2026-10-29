@@ -1,5 +1,8 @@
 # dsh-elysia-tts
 
+> 这是第一次做 DSH 插件，UP 本身也是计算机小白，代码和文档难免有粗糙、想不周全的地方。
+> 遇到问题欢迎到 Issues 里反馈，多多交流、一起把它改好；如果有帮到你，点个 ⭐ Star 支持一下就好啦，谢谢~
+
 把 **GPT-SoVITS** 的语音合成接进 [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness)（DSH）。
 
 - 随 DSH 启动自动拉起 GPT-SoVITS 的 `api_v2.py`，并做存活守护（掉线自动重启）；
