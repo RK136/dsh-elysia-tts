@@ -21,6 +21,34 @@
 
 重启 DSH，第一次会下载音色权重（约 460MB）并生成推理配置，之后就能用 `elysia_tts` 说话啦。
 
+## 仓库文件说明
+
+| 文件 | 干什么的 |
+| --- | --- |
+| `lib/index.js` | 插件入口：随 DSH 启动、注册 `elysia_tts` 工具、生命周期管理 |
+| `lib/sovits.js` | GPT-SoVITS 服务管家：自动下载权重、生成推理配置、拉起/守护 `api_v2.py`、调 `/tts` 合成 |
+| `lib/config.js` | 配置 schema（所有可调项和默认值） |
+| `assets/tts_infer_v2pro.yaml` | 推理配置模板（自动生成配置时用它，替换权重路径） |
+| `assets/ref/g-06.wav`、`g-12.wav` | 自带的参考音（音色锚点），不用额外找音频 |
+| `cordis.patch.yml` | 装插件时插入到 profile 的默认配置（示例路径，需要改） |
+| `package.json` | npm 包信息与 DSH bundle 声明 |
+| `README.md` / `LICENSE` | 说明文档 / MIT 许可 |
+
+## Release 资产说明
+
+`models-v1` 这个 Release 页面上的四个文件：
+
+| 资产 | 是什么 | 要不要下 |
+| --- | --- | --- |
+| `elysia_v2pro-e10.ckpt` | GPT（t2s）权重，约 148MB，负责语气和韵律 | 插件会自动下 |
+| `elysia_v2Pro.pth` | SoVITS（vits）权重，约 309MB，负责音色 | 插件会自动下 |
+| `Source code (zip)` | GitHub 自动打包的仓库源码压缩包 | 不用下 |
+| `Source code (tar.gz)` | 同上，tar.gz 格式 | 不用下 |
+
+> 插件下载时只取前两个重量文件，地址是
+> `https://github.com/RK136/dsh-elysia-tts/releases/download/models-v1/<文件名>`；
+> 两个 source code 包是 GitHub 给仓库打的快照，跟音色无关。
+
 ## 配置项
 
 | 键 | 默认 | 说明 |

@@ -1,3 +1,14 @@
+﻿# GPT-SoVITS 推理配置模板（插件自带）
+#
+# 用途：插件第一次启动、且没有可用的 apiConfig 时，会用这份模板生成
+#       <DSH_HOME>/elysia-tts/tts_infer.yaml，并把 custom 段里的
+#       t2s_weights_path / vits_weights_path 替换成自动下载的权重路径。
+#
+# 说明：
+# - bert_base_path / cnhuhbert_base_path 是相对路径（相对 GPT-SoVITS 源码目录），不用改；
+# - device: cuda（有 GPU 用 cuda，纯 CPU 改成 cpu）；
+# - is_half: true（GPU 用半精度，CPU 关掉）；
+# - 只有 custom 段会被插件改写；下面 v1/v2/... 各段是 GPT-SoVITS 自带的预设，保持原样。
 custom:
   bert_base_path: GPT_SoVITS/pretrained_models/chinese-roberta-wwm-ext-large
   cnhuhbert_base_path: GPT_SoVITS/pretrained_models/chinese-hubert-base
@@ -70,3 +81,4 @@ v5turbo:
   t2s_weights_path: GPT_SoVITS/pretrained_models/s1v3.ckpt
   version: v5turbo
   vits_weights_path: GPT_SoVITS/pretrained_models/gsv-v5-pretrained/s2Gv5turbo.pth
+
